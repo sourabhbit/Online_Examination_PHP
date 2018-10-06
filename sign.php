@@ -25,17 +25,17 @@ $password = addslashes($password);
 $password = md5($password);
 
 $q3=mysqli_query($con,"INSERT INTO user VALUES  ('$name' , '$gender' , '$college','$email' ,'$mob', '$password')");
-if($q3)
+if(!$q3)   //made some changes so that error preventing should occur first
+{
+header("location:quiz.php?q7=Email Already Registered!!!");
+}
+else
 {
 session_start();
 $_SESSION["email"] = $email;
 $_SESSION["name"] = $name;
 
 header("location:account.php?q=1");
-}
-else
-{
-header("location:quiz.php?q7=Email Already Registered!!!");
 }
 ob_end_flush();
 ?>
