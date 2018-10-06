@@ -1,4 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php
+  session_start();
+?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
@@ -38,7 +40,6 @@ $(function () {
 <span class="logo">BIT CODERS</span></div>
 <?php
  include_once 'dbConnection.php';
-session_start();
 $email=$_SESSION['email'];
   if(!(isset($_SESSION['email']))){
 header("location:quiz.php");
